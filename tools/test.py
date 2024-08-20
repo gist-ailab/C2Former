@@ -1,9 +1,12 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import argparse
 import os
+import sys
 import os.path as osp
 import time
 import warnings
+
+sys.path.append('/SSDe/heeseon/src/C2Former')
 
 import mmcv
 import torch
@@ -24,12 +27,15 @@ def parse_args():
     """Parse parameters."""
     parser = argparse.ArgumentParser(
         description='MMDet test (and eval) a model')
-    parser.add_argument('config', help='test config file path')
-    parser.add_argument('checkpoint', help='checkpoint file')
+    parser.add_argument('--config', help='test config file path',
+        default='configs/s2anet/s2anet_c2former_fpn_1x_dota_le135.py')
+    parser.add_argument('--checkpoint', help='checkpoint file',
+        default='/SSDe/heeseon/src/C2Former/pretrain_weights/resnet50-2stream.pth')
     parser.add_argument(
         '--work-dir',
         help='the directory to save the file containing evaluation metrics')
-    parser.add_argument('--out', help='output result file in pickle format')
+    parser.add_argument('--out', help='output result file in pickle format',
+        default='work_dirs/C2Former/results.pkl')
     parser.add_argument(
         '--fuse-conv-bn',
         action='store_true',
@@ -38,6 +44,7 @@ def parse_args():
     parser.add_argument(
         '--gpu-ids',
         type=int,
+        default=1,
         nargs='+',
         help='ids of gpus to use '
         '(only applicable to non-distributed testing)')

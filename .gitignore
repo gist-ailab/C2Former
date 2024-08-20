@@ -122,3 +122,8 @@ tmp
 
 # custom
 mmrotate/.mim
+
+
+
+KaistResults/*
+output/*
