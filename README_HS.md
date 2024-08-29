@@ -57,3 +57,10 @@ python tools/test.py --config configs/s2anet/s2anet_c2former_fpn_1x_dota_le135.p
 
 
 ```
+
+## Train
+```
+export PYTHONPATH=/SSDe/heeseon/src/C2Former/mmrotate:$PYTHONPATH
+
+
+```

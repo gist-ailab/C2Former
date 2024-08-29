@@ -127,3 +127,7 @@ mmrotate/.mim
 
 KaistResults/*
 output/*
+
+annotated_image.png
+trainval.json
+test.json

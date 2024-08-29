@@ -1,6 +1,6 @@
 # dataset settings
-dataset_type = 'DroneVehicleDataset'  # load paired image
-data_root = '/home/yuanmaoxun/Datasets/DroneVehicle/'
+dataset_type = 'KaistDataset'  # load paired image
+data_root = '/ailab_mat/dataset/KAIST_PED/kaist-cvpr15/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -33,16 +33,16 @@ data = dict(
     workers_per_gpu=4,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'train_total/trainMatchedLabelTxtMVP_total',
-        img_prefix=data_root + 'train_total/trainMatchedImg_total',
+        ann_file='/SSDe/heeseon/src/C2Former/trainval.json',
+        img_prefix='',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'val_total/valMatchedLabelTxtMVP_total',
-        img_prefix=data_root + 'val_total/valMatchedImg_total',
+        ann_file='/SSDe/heeseon/src/C2Former/test.json',
+        img_prefix='',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'test_total/testMatchedLabelTxtMVP_total',
-        img_prefix=data_root + 'test_total/testMatchedImg_total',
+        ann_file='/SSDe/heeseon/src/C2Former/test.json',
+        img_prefix='',
         pipeline=test_pipeline))
